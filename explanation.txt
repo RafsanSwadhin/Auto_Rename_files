@@ -1,0 +1,64 @@
+#This code is a Python script that renames all the files in
+a given directory using a new naming pattern. Let's go through it step by step:
+
+#import os: This line imports the os module, which provides various
+functions for interacting with the operating system,
+including file and directory operations.
+
+#path = input("Enter the path & use (\) after the last word:"): This line prompts
+the user to enter a directory path and stores the input in the path variable.
+The user needs to use a forward slash / to separate the path elements, and
+it will be replaced with a backward slash \.
+
+#path = path.replace('\\', '/'): This line replaces all backward slashes \ with
+forward slashes / in the path variable.
+This is done because in some systems (like Windows), 
+file paths are represented using backward slashes, but in Python,
+forward slashes are typically used as the path separator.
+The replacement ensures compatibility with Python conventions.
+
+#print("See the path", path): This line prints the modified path after replacing
+backward slashes with forward slashes.
+It's for verification purposes so that you can see the path with the correct format.
+
+#print("Old name: ", os.listdir(path)): This line lists all the files and
+directories in the given path before renaming. os.listdir() returns a list
+of the names of all the entries in the path.
+The current file names will be printed to the console.
+
+#def main():: This line starts the definition of the main() function,
+which will be used to rename the files.
+
+#i = 1: This initializes a counter variable i to keep track of the file
+renaming process.
+
+#The for loop iterates over each file_name in the list of files and directories
+obtained by os.listdir(path).
+
+#Inside the loop:
+
+#new_name = path + "python" + str(i) + ".jpg": This line creates a new name for
+the file. It concatenates the path, the string "python", the current value of the
+counter i converted to a string, and the file extension ".jpg". So, the new names
+will be like "path/python1.jpg", "path/python2.jpg", and so on.
+old_name = path + file_name: This line creates the full path of the old file name
+by concatenating the path and the file_name.
+os.rename(old_name, new_name): This line renames the file.
+It takes the old file name and the new file name as arguments and renames the
+file accordingly.
+
+#i += 1: After each iteration of the loop,
+the counter i is incremented to ensure the next file will have a unique name.
+
+#main(): Finally, the script calls the main() function to execute the file renaming
+process.
+
+#print("New name : ", os.listdir(path)): This line lists all the files and
+directories in the given path after renaming. The updated file names will be
+printed to the console.
+
+#Keep in mind that this script can potentially overwrite existing files if the new
+names collide with already existing file names in the directory.
+Therefore, it's essential to use this script with caution and make sure you
+understand its purpose and potential consequences before running it on important
+files.
